@@ -1,5 +1,5 @@
 # Usa una imagen base con Python y Chrome preinstalados
-FROM python:3.12-slim
+FROM python:3.10-slim
 
 # Instala dependencias del sistema necesarias para Chrome y Selenium
 RUN apt-get update && apt-get install -y \
