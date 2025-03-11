@@ -33,6 +33,10 @@ def scrape_facebook_data(profile_url: str) -> FacebookProfile:
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-dev-shm-usage")  # Usa disco en vez de memoria compartida
+    chrome_options.add_argument("--disable-gpu")  # Desactiva GPU (necesario en headless)
+    chrome_options.add_argument("--disable-software-rasterizer")  # Evita crash en ciertas configuraciones
+    chrome_options.add_argument("--remote-debugging-port=9222")  # Activa debugging
 
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
